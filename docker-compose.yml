@@ -14,7 +14,7 @@ services:
       - "3307:3306"
     volumes:
       - airdrop_db:/var/lib/mysql
-      - ./coin-airdrop-service/init:/docker-entrypoint-initdb.d
+      - ./projects/coin-airdrop-service/init:/docker-entrypoint-initdb.d
       - ./settings:/etc/mysql/conf.d
 
 volumes:
