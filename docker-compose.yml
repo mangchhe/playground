@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysql-airdrop:
+    image: mysql:8.0
+    container_name: mysql-airdrop
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: airdrop
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3307:3306"
+    volumes:
+      - airdrop_db:/var/lib/mysql
+      - ./coin-airdrop-service/init:/docker-entrypoint-initdb.d
+      - ./settings:/etc/mysql/conf.d
+
+volumes:
+  airdrop_db:
