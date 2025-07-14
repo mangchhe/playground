@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mysql-airdrop:
-    image: mysql:8.0
+    image: mysql:8.0.42
     container_name: mysql-airdrop
     restart: always
     environment:
@@ -17,5 +17,15 @@ services:
       - ./projects/coin-airdrop-service/init:/docker-entrypoint-initdb.d
       - ./settings:/etc/mysql/conf.d
 
+  redis-airdrop:
+    image: redis:7.2.4
+    container_name: redis-airdrop
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
 volumes:
   airdrop_db:
+  redis_data:
