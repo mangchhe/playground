@@ -1,6 +1,7 @@
 package me.hajoo.coinairdropservice
 
-import me.hajoo.coinairdropservice.repository.AirdropClaimRepository
+import me.hajoo.coinairdropservice.step1.AirdropService
+import me.hajoo.coinairdropservice.step1.repository.AirdropClaimRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest

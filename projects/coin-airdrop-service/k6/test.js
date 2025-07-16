@@ -1,5 +1,10 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
+import { Counter } from 'k6/metrics';
+
+let successCount = new Counter('success_requests');
+let conflictCount = new Counter('conflict_requests');
+let soldoutCount = new Counter('soldout_requests');
 
 // export let options = {
 //     vus: 100,
@@ -7,8 +12,8 @@ import { check, sleep } from 'k6';
 // };
 
 export let options = {
-    vus: 10,
-    iterations: 100,
+    vus: 1000,
+    iterations: 100000,
 };
 
 export default function () {
@@ -19,6 +24,14 @@ export default function () {
     check(res, {
         'status is 200 or 409': (r) => r.status === 200 || r.status === 409,
     });
+
+    if (res.status === 200) {
+        successCount.add(1);
+    } else if (res.status === 409) {
+        conflictCount.add(1);
+    } else if (res.status === 410) {
+        soldoutCount.add(1);
+    }
 
     sleep(0.1);
 }

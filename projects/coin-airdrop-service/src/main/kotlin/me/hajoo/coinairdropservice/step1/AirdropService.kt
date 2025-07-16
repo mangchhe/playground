@@ -1,13 +1,13 @@
-package me.hajoo.coinairdropservice
+package me.hajoo.coinairdropservice.step1
 
-import me.hajoo.coinairdropservice.domain.AirdropClaim
-import me.hajoo.coinairdropservice.repository.AirdropClaimRepository
-import me.hajoo.coinairdropservice.repository.AirdropEventRepository
+import me.hajoo.coinairdropservice.step1.domain.AirdropClaim
+import me.hajoo.coinairdropservice.step1.repository.AirdropClaimRepository
+import me.hajoo.coinairdropservice.step1.repository.AirdropEventRepository
 import jakarta.transaction.Transactional
 import org.springframework.dao.OptimisticLockingFailureException
 import org.springframework.stereotype.Service
 
-@Service
+//@Service
 class AirdropService(
     private val eventRepo: AirdropEventRepository,
     private val claimRepo: AirdropClaimRepository

@@ -1,10 +1,10 @@
-package me.hajoo.coinairdropservice
+package me.hajoo.coinairdropservice.step1
 
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
-@RestController
+//@RestController
 @RequestMapping("/airdrop")
 class AirdropController(
     private val airdropService: AirdropService

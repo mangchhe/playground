@@ -1,6 +1,6 @@
-package me.hajoo.coinairdropservice.repository
+package me.hajoo.coinairdropservice.step1.repository
 
-import me.hajoo.coinairdropservice.domain.AirdropClaim
+import me.hajoo.coinairdropservice.step1.domain.AirdropClaim
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface AirdropClaimRepository : JpaRepository<AirdropClaim, Long> {

@@ -1,4 +1,4 @@
-package me.hajoo.coinairdropservice.domain
+package me.hajoo.coinairdropservice.step1.domain
 
 import jakarta.persistence.*
 import java.time.LocalDateTime
